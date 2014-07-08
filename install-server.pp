@@ -34,7 +34,7 @@ package { ['python-jinja2',
 }
 
 # -----------------
-# PuppetMaster Part
+# PuppetMaster/PuppetDB Part
 
 apt::source { 'debian_purpose':
   location          => 'http://ftp.us.debian.org/debian',
@@ -51,9 +51,15 @@ class{ 'java':
 class{'puppet::repo::puppetlabs': }
 Class['puppet::repo::puppetlabs'] -> Package <| |>
 
-class { 'puppetdb': }
-class { 'puppetdb::master::config':
+class { 'puppet::master': 
+  storeconfigs => true,
+  certname => 'installserver'
+}
+class { 'puppetdb': 
+  ssl_listen_address => 'localhost',
+}
+
+class { 'puppetdb::master::config': 
   puppetdb_server => 'localhost',
 }
 
-#class { 'puppet::master': storeconfigs => true }
