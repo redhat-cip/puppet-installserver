@@ -41,7 +41,7 @@ case "$OS" in
 	apt-get -y --force-yes install puppet rubygems git tzdata=2014a-0wheezy1
 	gem install r10k
 	cd $ORIG
-#	r10k puppetfile install
+	r10k puppetfile install
 	;;
     *)
         exit 0
