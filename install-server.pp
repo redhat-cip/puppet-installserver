@@ -52,14 +52,10 @@ class{'puppet::repo::puppetlabs': }
 Class['puppet::repo::puppetlabs'] -> Package <| |>
 
 class { 'puppet::master': 
-  storeconfigs => true,
-  certname => 'installserver'
+  storeconfigs          => true,
+  storeconfigs_dbserver => $::hostname,
 }
 class { 'puppetdb': 
-  ssl_listen_address => 'localhost',
+  listen_address     => $::hostname,
+  ssl_listen_address => $::hostname,
 }
-
-class { 'puppetdb::master::config': 
-  puppetdb_server => 'localhost',
-}
-
