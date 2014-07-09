@@ -42,6 +42,7 @@ case "$OS" in
 	gem install r10k
 	cd $ORIG
 	r10k puppetfile install
+	echo "127.0.0.1 `facter fqdn`" >> /etc/hosts	
 	;;
     *)
         exit 0
