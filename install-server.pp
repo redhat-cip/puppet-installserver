@@ -53,9 +53,9 @@ Class['puppet::repo::puppetlabs'] -> Package <| |>
 
 class { 'puppet::master': 
   storeconfigs          => true,
-  storeconfigs_dbserver => $::hostname,
+  storeconfigs_dbserver => $::fqdn,
 }
 class { 'puppetdb': 
-  listen_address     => $::hostname,
-  ssl_listen_address => $::hostname,
+  listen_address     => $::fqdn,
+  ssl_listen_address => $::fqdn,
 }
