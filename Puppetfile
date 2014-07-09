@@ -57,3 +57,7 @@ mod 'xinetd',
 mod 'java',
 	:git => 'https://github.com/puppetlabs/puppetlabs-java.git',
 	:ref => 'a089f326ca3a975724cb492e1606fc1261e47921'
+
+mod 'jenkins',
+	:git => 'https://github.com/jenkinsci/puppet-jenkins.git',
+	:ref => '781df5e90bbdcb5e1233abe922bec7be490c8a93'

@@ -33,6 +33,17 @@ package { ['python-jinja2',
       ensure => installed,
 }
 
+#class { 'jenkins':
+#  install_java => false,
+#}
+
+class{ 'jenkins':
+  install_java => false,
+  config_hash => {
+    'HTTP_PORT' => { 'value' => '8282' },
+  }
+}
+
 # -----------------
 # PuppetMaster/PuppetDB Part
 
