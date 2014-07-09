@@ -8,4 +8,12 @@ How to test with Vagrant ?
 ==========================
 
 Just run :
- vagrant up
+```
+vagrant up
+```
+
+or you can just run install.sh on a freshly installed node :
+
+```
+/bin/sh install.sh
+```
